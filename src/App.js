@@ -29,18 +29,19 @@ function App(props) {
     const updatedTasks = tasks.map(task => {
       // if this task has the same ID as the edited task
       if (id === task.id) {
-        // use object spread to make a new obkect
+        // use ES6 object spread operator to make a new object
         // whose `completed` prop has been inverted
         return {...task, completed: !task.completed}
       }
       return task;
     });
+    // update `tasks` variable with the new array made at line 29, using react useState Hook 
     setTasks(updatedTasks);
   }
 
 
   function deleteTask(id) {
-    const remainingTasks = tasks.filter(task => id !== task.id);
+    const remainingTasks = tasks.filter(task => id !== task.id); // filtering out the tasks which has same id as the parameter passed
     setTasks(remainingTasks);
   }
 
